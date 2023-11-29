@@ -11,7 +11,6 @@ const Home = () => {
             <Footer/>
         </div>
         </Link>
-        
      );
 }
  
