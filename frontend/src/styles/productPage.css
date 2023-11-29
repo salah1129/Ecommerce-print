@@ -1,0 +1,39 @@
+.backgroundImage{
+    height: 70vh;
+    width: 100%;
+}
+.cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    padding: 100px;
+    background-color: ghostwhite;
+}
+.cards a{
+    text-decoration: none;
+}
+.card{
+
+}
+.card .cardImg{
+    
+}
+.card .cardImg img{
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: 0.3s;
+}
+.card .cardImg img:hover{
+    transform: scale(1.03);
+}
+.card .description{
+    background-color: gainsboro;
+    margin-top: 6px;
+    border-radius: 6px;
+    padding: 10px;
+    color: black;
+}
+.card .description .cardDescription{
+    padding-left: 6px;
+    margin: 10px 0;
+}

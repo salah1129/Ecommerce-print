@@ -1,0 +1,14 @@
+.head{
+    height: 90vh;
+    color: white;
+    padding: 200px 0 0 100px;
+    font-size: 30px;
+}
+.head h1{
+    width: 40%;
+    font-weight: 500;
+}
+.head h3{
+    width: 40%;
+    font-weight: 300;   
+}
