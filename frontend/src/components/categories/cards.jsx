@@ -60,16 +60,14 @@ const ProductList = ({ products }) => {
 
 const ProductCard = ({ product }) => {
     return (
-        <Link to={`/cards/${product._id}`}>
+        <Link to={`/products/cards/${product._id}`}>
             <div className='card'>
                 <div className='cardImg'>
                     <img alt='img' src={`/images/cards/${product.productImage}`} style={{width: "100%", height: "100%"}} />
                 </div>
                 <div className='description'>
                     <h3 className='cardName'>{product.productName}</h3>
-                    <div className='cardDescription'>{product.shortDescription[0]} </div>
-                    <div className='cardDescription'>{product.shortDescription[1]} </div>
-                    <div className='cardDescription'>{product.shortDescription[2]} </div>
+                    <div className='cardDescription'>{product.shortDescription} </div>
                     <div className='link'>Show more details</div>
                 </div>
             </div>

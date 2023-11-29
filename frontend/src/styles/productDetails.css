@@ -1,0 +1,46 @@
+.productDetails{
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    padding: 0 160px;
+}
+.productDetails .productImage{
+    height: 70%;
+    width: 55%;
+    margin-right: 60px;
+}
+.productDetails .productImage img{
+    border-radius: 10px;
+}
+.productDetails .description{
+    height: 70%;
+    width: 36%;
+    background-color: gainsboro;
+    padding: 30px;
+}
+.productDetails .description h1{
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+.productDetails .description h3{
+    margin-bottom: 16px;
+}
+.productDetails .description p{
+    font-size: 20px;
+    opacity: 0.7;
+    margin-bottom: 16px;
+}
+.productDetails .description button{
+    height: 60px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 6px;
+    transition: 0.3s;
+    margin-bottom: 16px;
+}
+.productDetails .description button:hover{
+    transform: scale(1.03);
+}

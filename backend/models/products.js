@@ -9,7 +9,7 @@ const productSchema = new Schema({
     productName: { type: String, required: true },
     categoryID: {type : mongoose.Schema.Types.ObjectId},
     longDescription: { type: String, required: true },
-    shortDescription : [{type : String}],
+    shortDescription : {type : String},
     price: { type: String },
     discountPrice: { type: Number },
     active: { type: Boolean, required: true }

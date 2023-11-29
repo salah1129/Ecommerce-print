@@ -15,7 +15,7 @@ const Products = () => {
               <h3>Elevate your brand with high-quality, customized printing services.</h3>
           </div>
           <div className="categories">
-            <Link to={"/cards"}>
+            <Link to={"/products/cards"}>
             <button>Cards</button>
             </Link>
           </div>

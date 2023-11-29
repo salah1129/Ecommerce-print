@@ -6,6 +6,7 @@ import './App.css';
 import Home from './components/home';
 import Products from './components/products';
 import Cards from './components/categories/cards';
+import ProductDetails from './components/productDetails';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
           <Routes>
           <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
-            <Route path="/cards" element={<Cards />} />
+            <Route path="/products/cards" element={<Cards />} />
+            <Route path="/products/cards/:id" element={<ProductDetails />} />
           </Routes>
         </Router>
       </div>
