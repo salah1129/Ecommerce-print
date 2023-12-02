@@ -13,10 +13,35 @@
 .productDetails .productImage img{
     border-radius: 10px;
 }
+.productDetails .nextPrev{
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+    margin: 16px auto;
+}
+.nextPrev div{
+    width: 80px;
+    height: 50px;
+    background-color: rebeccapurple;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+    user-select: none;
+}
+.nextPrev div:hover{
+    transform: scale(1.05);
+}
+
 .productDetails .description{
     height: 70%;
     width: 36%;
-    background-color: gainsboro;
+    background-color: rebeccapurple;
+    color: white;
     padding: 30px;
 }
 .productDetails .description h1{

@@ -1,39 +1,99 @@
 .backgroundImage{
     height: 70vh;
     width: 100%;
+    padding: 100px 0 0 100px;
+}
+.backgroundImage h1{
+    font-size: 40px;
+    width: 40%;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+.backgroundImage h3{
+    font-size: 40px;
+    width: 40%;
+    font-weight: 300;
+}
+.nav{
+    height: 7vh;
+    width: 100%;
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.2);
+}
+.nav ul{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    margin: 0 auto;
+    list-style: none;
+}
+.nav ul li{
+    flex: 1;
+    margin-right: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: 300;
+    transition: 0.6s;
+}
+.nav ul li:hover{
+    border-bottom: 2px solid green;
+    transform: scaleX(1.1);
 }
 .cards{
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
-    gap: 20px; 
+    gap: 30px; 
     padding: 100px;
-    background-color: ghostwhite;
 }
 .cards a{
     text-decoration: none;
 }
 .card{
-
+    transition: 0.3s;
+    height: 580px;
+    position: relative;
+}
+.card:hover{
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 .card .cardImg{
-    
-}
-.card .cardImg img{
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    transition: 0.3s;
-}
-.card .cardImg img:hover{
-    transform: scale(1.03);
+    height: 300px;
 }
 .card .description{
-    background-color: gainsboro;
-    margin-top: 6px;
-    border-radius: 6px;
-    padding: 10px;
+    padding: 16px;
     color: black;
 }
-.card .description .cardDescription{
-    padding-left: 6px;
-    margin: 10px 0;
+.card .description .cardName{
+    font-size: 20px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+.card .description .cardName h3{
+    font-weight: 500;
+}
+.card .description .cardName{
+    
+}
+.card .description .price{
+    font-size: 20px;
+    margin-bottom: 16px;
+    font-weight: 500;
+    opacity: 0.8;
+}
+.card .description .desc{
+    font-size: 20px;
+    opacity: 0.7;
+}
+.card .description .link{
+    font-size: 20px;
+    color: green;
+    position: absolute;
+    bottom: 16px;
+    transition: 0.3s;
+}
+.card .description .link:hover{
+    transform: scale(1.05);
 }

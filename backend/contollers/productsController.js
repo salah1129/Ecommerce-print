@@ -47,21 +47,19 @@ exports.getAllProducts = async (req, res) => {
                 },
             },
             {
-                
                 $project: {
                     _id: 1,
                     sku: 1,
                     productImage: 1,
                     productName: 1,
-                    // categoryName: { $arrayElemAt: ["$category.categoryName", 0] },
-                    shortDescription: 1,
+                    categoryName:1,
+                    subCategoryID: 1,
+                    descriptions: 1,
                     longDescription: 1,
                     price: 1,
                     active: 1,
-                    categoryID: 1
+                    images: 1
                 },
-                
-               
             },
         ]);
 

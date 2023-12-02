@@ -28,7 +28,7 @@ const subcategorySchema = mongoose.Schema({
   },
   categoryID: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Category', // Replace with the actual name of your Category model
+    ref: 'Category', 
     required: true,
   },
   active: {
