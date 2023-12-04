@@ -3,11 +3,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import "../../styles/productPage.css"
-
 const Cards = () => {
     const [productData, setProductData] = useState([]);
     const [subCategoryId, setSubCategoryId] = useState('6569f1b7432bbd4af69fc049');
-
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -46,7 +45,9 @@ const Cards = () => {
                 <ul>
                     <li onClick={() => handleSubCategoryClick('6569f1b7432bbd4af69fc049')}>business cards</li>
                     <li onClick={() => handleSubCategoryClick('656a009fd859b6a944d37cd4')}>postcards</li>
-                    <li onClick={() => handleSubCategoryClick('656a0870d859b6a944d37d22')}>Invitations</li>
+                    <li onClick={() => handleSubCategoryClick('656cccf88e582d304faddd8f')}>invitations</li>
+                    <li onClick={() => handleSubCategoryClick('')}>Greeting Cards</li>
+                    <li onClick={() => handleSubCategoryClick('')}>Thank You Cards</li>
                 </ul>
             </div>
             <div className='products'>
@@ -68,7 +69,6 @@ const ProductList = ({ products }) => {
 
 const ProductCard = ({ product }) => {
     return (
-        <Link to={`/products/cards/${product._id}`}>
             <div className='card'>
                 <div className='cardImg'>
                     <img alt='img' src={`/images/cards/${product.productImage}`} style={{width: "100%", height: "100%"}} />
@@ -81,10 +81,12 @@ const ProductCard = ({ product }) => {
                     <div className='desc'>{product.descriptions[0]}</div>
                     <div className='desc'>{product.descriptions[1]}</div>
                     <div className='desc'>{product.descriptions[2]}</div>
+                    <Link to={`/products/cards/${product._id}`}>
                     <div className='link'>Show details</div>
+                    </Link>
+                    <div className='addToCart'>add to cart</div>
                 </div>
             </div>
-        </Link>
     );
 };
 

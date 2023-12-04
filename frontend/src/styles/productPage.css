@@ -87,13 +87,22 @@
     font-size: 20px;
     opacity: 0.7;
 }
-.card .description .link{
+.card .description .link,
+.card .description .addToCart{
     font-size: 20px;
-    color: green;
+    height: 40px;
+    width: 120px;
+    color: rebeccapurple;
     position: absolute;
     bottom: 16px;
     transition: 0.3s;
 }
-.card .description .link:hover{
+.card .description .addToCart{
+    right: 0;
+    transition: 0.3s;
+}
+.card .description .link:hover,
+.card .description .addToCart:hover{
     transform: scale(1.05);
 }
+
