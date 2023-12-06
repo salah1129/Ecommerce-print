@@ -1,4 +1,4 @@
-// Cart.jsx
+// cart.jsx
 import "../styles/cart.css";
 import React, { useState } from 'react';
 import Header from "./header";
@@ -60,10 +60,10 @@ const Cart = ({ cartItems, removeFromCart }) => {
         </div>
         <div className="cartSummary">
           <div>
-          <h2>Cart Summary</h2>
-          <p>Total Items: {totalItems}</p>
-          <p>Overall Total: {calculateTotal()} DH</p>
-          <button>Order now</button>
+            <h2>Cart Summary</h2>
+            <p>Total Items: {totalItems}</p>
+            <p>Overall Total: {calculateTotal()} DH</p>
+            <button>Order now</button>
           </div>
         </div>
       </div>
@@ -73,3 +73,4 @@ const Cart = ({ cartItems, removeFromCart }) => {
 };
 
 export default Cart;
+
