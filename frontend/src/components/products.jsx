@@ -53,8 +53,8 @@ const Cards = () => {
           </ul>
         </div>
         <div className='top'>
-          <h1>Your Unique Card Collection</h1>
-          <h3>Discover the Perfect Designs for Every Occasion, Express Your Sentiments with Elegance</h3>
+          <h1></h1>
+          <h3></h3>
         </div>
         <div className='products'>
           <ProductList products={productData} />
