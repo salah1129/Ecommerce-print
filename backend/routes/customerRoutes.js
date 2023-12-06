@@ -1,4 +1,6 @@
 const express = require('express');
+
+/////
 const { registerCustomer, authCustomer, deleteCustomer, getCustomerById, getCustomers, getSearchCustomers, updateCustomer, logoutCustomer, updateCustomerProfile, getCustomerProfile } = require("../contollers/customersController");
 const { protect } = require('../middlewares/authMidellware');
 const { checkUserRole } = require('../middlewares/checkRoleMidellware');
