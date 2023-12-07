@@ -25,20 +25,35 @@
     list-style: none;
     padding: 0 20px;
 }
-.nav ul li{
+.nav ul li {
+    position: relative; /* Add relative positioning to the list item */
     flex: 1;
     margin-right: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: 0.1s;
+    transition: 0.3s; /* Increased duration for a smoother transition */
     font-weight: 600;
     text-align: center;
 }
-.nav ul li:hover{
-    border-bottom: 3px solid rebeccapurple;
+
+.nav ul li::before {
+    content: ''; 
+    position: absolute;
+    bottom: 0;
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 0;
+    height: 3px;
+    background-color: rebeccapurple;
+    transition: width 0.3s; 
 }
+
+.nav ul li:hover::before {
+    width: 100%; 
+}
+
 .cards{
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
