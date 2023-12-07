@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import "../styles/productPage.css";
-import Header from './header';
 
 const Cards = () => {
   const [productData, setProductData] = useState([]);
@@ -38,7 +37,6 @@ const Cards = () => {
 
     return (
     <>
-      <Header />
       <div className='cardsPage'>
         <div className='backgroundImage' style={backgroundImageStyle}></div>
         <div className='nav'>
@@ -53,8 +51,8 @@ const Cards = () => {
           </ul>
         </div>
         <div className='top'>
-          <h1></h1>
-          <h3></h3>
+          <h1>Your Unique Card Collection</h1>
+          <h3>Discover the Perfect Designs for Every Occasion, Express Your Sentiments with Elegance</h3>
         </div>
         <div className='products'>
           <ProductList products={productData} />

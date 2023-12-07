@@ -1,8 +1,6 @@
 // cart.jsx
 import "../styles/cart.css";
 import React, { useState } from 'react';
-import Header from "./header";
-import Footer from "./footer";
 
 const Cart = ({ cartItems, removeFromCart }) => {
   const [quantities, setQuantities] = useState({});
@@ -29,7 +27,6 @@ const Cart = ({ cartItems, removeFromCart }) => {
 
   return (
     <>
-      <Header />
       <div className="cart">
         <div className='shoppingCart'>
           <h1>Your Shopping Cart</h1>
@@ -67,7 +64,6 @@ const Cart = ({ cartItems, removeFromCart }) => {
           </div>
         </div>
       </div>
-      <Footer/>
     </>
   );
 };

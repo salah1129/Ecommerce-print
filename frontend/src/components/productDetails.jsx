@@ -9,7 +9,6 @@ const ProductDetails = ({ addToCart }) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [imageIndex, setImageIndex] = useState("1");
-  const [uploadedFile, setUploadedFile] = useState(null);
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -32,25 +31,6 @@ const ProductDetails = ({ addToCart }) => {
     const prevIndex = (imageIndex - 1 + product.images.length) % product.images.length;
     setImageIndex(prevIndex.toString());
   };
-
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    setUploadedFile(file);
-  };
-
-  const handleUploadDesign = () => {
-    const formData = new FormData();
-    formData.append('designFile', uploadedFile);
-
-    axios.post('http://localhost:5000/v1/upload-design', formData)
-      .then(response => {
-        console.log('Upload successful:', response.data);
-      })
-      .catch(error => {
-        console.error('Error uploading design:', error);
-      });
-  };
-
   const handleAddToCart = () => {
     addToCart(product);
   };
@@ -72,13 +52,6 @@ const ProductDetails = ({ addToCart }) => {
         <h1>{product.productName}</h1>
         <h3>{product.price}</h3>
         <p>{product.longDescription}</p>
-        <div className='uploadDesing'>
-          <h3>Have a design? Upload it now</h3>
-          <div>
-            <input type="file" onChange={handleFileChange} />
-            <button onClick={handleUploadDesign} className='upload'>Upload Design</button>
-          </div>
-        </div>
         <button onClick={handleAddToCart} className='addToCart'>Add to Cart</button>
         <Link to={"/cart"} >go to cart</Link>
       </div>

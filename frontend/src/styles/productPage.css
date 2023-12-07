@@ -1,5 +1,5 @@
 .top{
-    margin-top: 30px;
+    margin : 30px 0;
     text-align: center;
     font-size: 20px;
 }
@@ -20,56 +20,55 @@
 }
 .nav ul{
     height: 100%;
-    width: 85%;
     display: flex;
     margin: 0 auto;
     list-style: none;
+    padding: 0 20px;
 }
 .nav ul li{
-    background-color: ghostwhite;
     flex: 1;
     margin-right: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 19px;
     cursor: pointer;
-    transition: 0.6s;
+    transition: 0.1s;
     font-weight: 600;
+    text-align: center;
 }
 .nav ul li:hover{
-    border-bottom: 2px solid green;
+    border-bottom: 3px solid rebeccapurple;
 }
 .cards{
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
-    gap: 30px; 
-    padding: 100px 200px;
+    gap: 30px;
+    padding: 0 100px;
 }
 .cards a{
     text-decoration: none;
 }
 .card{
     transition: 0.3s;
-    height: 620px;
+    height: 500px;
+    width: 350px;
     position: relative;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     cursor: pointer;
 }
 .card .cardImg{
-    height: 300px;
+    height: 50%;
 }
 .card:hover{
     transform: scale(1.02);
 }
 .card .description{
-    padding: 16px;
     color: black;
+    font-size: 16px;
+    padding: 16px;
 }
 .card .description .cardName{
-    font-size: 20px;
-    margin-bottom: 8px;
     display: flex;
     justify-content: space-between;
 }
@@ -77,34 +76,23 @@
     font-weight: 500;
 }
 .card .description .price{
-    font-size: 20px;
-    margin-bottom: 16px;
     font-weight: 500;
     opacity: 0.8;
+    background-color: white;
+    padding-left: 0;
+    margin-bottom: 8px;
 }
 .card .description .desc{
-    font-size: 20px;
     opacity: 0.7;
 }
-.card .description .link,
-.card .description .addToCart{
-    font-size: 20px;
-    height: 40px;
-    width: 120px;
-    color: rebeccapurple;
+.card .description .link{
     position: absolute;
     bottom: 16px;
     transition: 0.3s;
 }
-.card .description .addToCart{
-    right: 0;
-    transition: 0.3s;
+.card .description .link:hover{
+    font-weight: 600;
 }
-.card .description .link:hover,
-.card .description .addToCart:hover{
-    transform: scale(1.05);
-}
-
     @media only screen and (max-width: 1024px) {
     .cards{
         grid-template-columns: repeat(2, 1fr); 

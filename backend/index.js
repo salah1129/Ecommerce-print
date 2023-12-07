@@ -10,8 +10,6 @@ const productsRoutes = require("./routes/productsRoutes")
 const UserRoutes= require('./routes/userRoutes');
 const SubcategoryRoutes = require("./routes/subCategoriesRoutes");
 
-
-
 const { notFound, errorHandler } = require('./middlewares/errorMidellware')
 
 const app = express();
@@ -19,7 +17,6 @@ dotenv.config();
 connectDB();
 app.use(express.json());
 app.use(cors());
-
 
 const PORT = process.env.PORT || 5000;
 
@@ -38,4 +35,4 @@ app.use(notFound, errorHandler);
 
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
-  });
+});

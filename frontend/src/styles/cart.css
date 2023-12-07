@@ -14,9 +14,8 @@
     display: flex;
     height: 250px;
     margin: 16px 0 36px 0;
-    background-color: #778899;
+    background-color: #778899 ;
     color: white;
-    border-radius: 8px;
     position: relative;
 }
 .cartItem img{
@@ -64,7 +63,6 @@
     background-color: #778899;
     color: white;
     font-size: 22px;
-    border-radius: 8px;
 }
 .cartSummary div button{
     height: 50px;

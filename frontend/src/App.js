@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Home from './components/home';
 import Products from './components/products';
 import ProductDetails from './components/productDetails';
 import Cart from './components/cart';
@@ -46,7 +45,6 @@ function App() {
       <div>
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/signinSignup" element={<LoginSignup/>} />
             <Route path="/payment" element={<Validation/>} />
