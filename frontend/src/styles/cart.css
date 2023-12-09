@@ -1,94 +1,91 @@
-.cart{
+
+ /* cart.css */
+.cart {
     display: flex;
-    padding: 30px 100px;
-}
-.shoppingCart{
-    width: 70%;
-    margin-top: 20px;
-    border-radius: 26px;
-}
-.shoppingCart h1{
-    font-weight: 500;
-}
-.shoppingCart .cartItem{
+    justify-content: space-between;
+    margin: 20px;
+    padding: 100px 50px;
+  }
+  
+  .shoppingCart {
+    flex: 1;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cartItem {
     display: flex;
-    height: 250px;
-    margin: 16px 0 36px 0;
-    background-color: #778899 ;
-    color: white;
+    margin: 20px 0; 
     position: relative;
-}
-.cartItem img{
-    padding: 36px;
-}
-.cartItem .details{
-    padding: 36px;
-    font-size: 18px;
+  }
+  
+  .cartItem img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .details {
+    flex: 1;
+  }
+  
+  .remove {
+    background-color: #ff5656;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+  }
+  
+  .cartSummary {
+    flex: 0 0 300px;
+    margin-left: 20px;
+
+  }
+  
+  .form {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    font-size: 22px;
-    font-weight: 600;
-}
-.details input{
-    height: 40px;
-    width: 100%;
-    padding: 0 16px;
-    outline: none;
-    border: none;
-}
-.details button{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    height: 30px;
-    width: 30px;
-    cursor: pointer;
-    background-color: white;
-    color: #778899;
-    font-size: 18px;
-    font-weight: bold;
-    transition: 0.3s;
-    border: none;
-}
-.details button:hover{
-    opacity: 0.8;
-}
-.cartSummary{
-    width: 30%;
-    padding: 80px 20px;
-}
-.cartSummary div{
-    padding: 36px;
-    background-color: #778899;
-    color: white;
-    font-size: 22px;
-}
-.cartSummary div button{
-    height: 50px;
-    width: 100%;
-    cursor: pointer;
-    background-color: white;
-    color: #778899;
-    font-size: 18px;
-    font-weight: bold;
-    transition: 0.3s;
-    margin-top: 20px;
-}
-.cartSummary div button:hover{
-    opacity: 0.8;
-}
-
-@media only screen and (max-width: 980px) {
-    .cart{
-        flex-direction: column;
-    }
-    .shoppingCart{
-        width: 100%;
-    }
-    .cartSummary{
-        width: 100%;
-    }
-   
   }
-
+  
+  label {
+    margin-bottom: 8px;
+  }
+  
+  input {
+    margin-bottom: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .success-message {
+    margin-top: 20px;
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  .form{
+    width: 100%;
+  }
+  .form input{
+    width: 100%;
+  }
