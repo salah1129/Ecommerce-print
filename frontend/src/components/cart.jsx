@@ -1,10 +1,11 @@
-// cart.jsx
 import "../styles/cart.css";
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 const Cart = ({ cartItems, removeFromCart }) => {
   const [quantities, setQuantities] = useState({});
-  
+  const [showOrderForm, setShowOrderForm] = useState(false);
+  const orderFormRef = useRef(null);
+
   const handleRemove = (productId) => {
     removeFromCart(productId);
   };
@@ -24,6 +25,18 @@ const Cart = ({ cartItems, removeFromCart }) => {
   };
 
   const totalItems = cartItems.reduce((total, item) => total + (quantities[item._id] || 0), 0);
+
+  const handlePlaceOrderClick = () => {
+    setShowOrderForm(true);
+  };
+
+  useEffect(() => {
+    // Scroll to the order form when showOrderForm becomes true
+    if (showOrderForm && orderFormRef.current) {
+      orderFormRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [showOrderForm]);
+
 
   return (
     <>
@@ -69,11 +82,66 @@ const Cart = ({ cartItems, removeFromCart }) => {
             <p>Total Items: {totalItems}</p>
             <p>Overall Total: {calculateTotal()} DH</p>
           </div>
-          <button className="placeOrder">place the order</button>
+          <button className="placeOrder" onClick={handlePlaceOrderClick}>
+            Place Order
+          </button>
         </div>
       </div>
+
+      {showOrderForm && (
+        
+        <div className="orderForm" ref={orderFormRef}>
+          <h2>Order Details</h2>
+          <p>Please provide your personal, delivery, and payment details to complete the order.</p>
+          <form>
+            <h3>Personal Details</h3>
+            <label>
+              Name:
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              Email:
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              Phone:
+              <input type="tel" name="phone" required />
+            </label>
+            <h3>Delivery Details</h3>
+            <label>
+              Address:
+              <input type="text" name="address" required />
+            </label>
+            <label>
+              Tax number if you are a company:
+              <input type="text" name="Matricule fiscale" />
+            </label>
+            <label>
+              City:
+              <input type="text" name="city" required />
+            </label>
+            <label>
+              Postal Code:
+              <input type="text" name="postalCode" required />
+            </label>
+            <h3>Payment Details</h3>
+            <label>
+              Card Number:
+              <input type="text" name="cardNumber" required />
+            </label>
+            <label>
+              Expiry Date:
+              <input type="text" name="expiryDate" placeholder="MM/YYYY" required />
+            </label>
+            <label>
+              CVV:
+              <input type="text" name="cvv" required />
+            </label>
+            <button type="submit" className="submitOrder">Submit Order</button>
+          </form>
+        </div>
+      )}
     </>
   );
 };
-
 export default Cart;

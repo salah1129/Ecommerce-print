@@ -52,6 +52,7 @@ function App() {
               path="/cart"
               element={<Cart cartItems={cartItems} removeFromCart={removeFromCart} />}
             />
+
           </Routes>
         </Router>
       </div>
