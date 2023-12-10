@@ -1,4 +1,4 @@
-//cart.jsx
+//index.jsx
 
 const express = require('express');
 const dotenv = require('dotenv');
@@ -7,7 +7,6 @@ const cors = require('cors');
 const path = require('path');
 
 const customerRoutes = require('./routes/customerRoutes');
-const orderRoutes = require('./routes/orderRoutes');
 const categoriesRoutes = require('./routes/categoriesRoutes');
 const productsRoutes = require('./routes/productsRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -28,7 +27,6 @@ app.get('/', (req, res) => {
 });
 
 app.use('/v1/customers', customerRoutes);
-app.use('/v1/orders',  orderRoutes);
 app.use('/v1/categories', categoriesRoutes);
 app.use('/v1/products', productsRoutes);
 app.use('/v1/users', userRoutes);

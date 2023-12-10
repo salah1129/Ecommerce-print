@@ -47,7 +47,7 @@ const Cards = () => {
             <li onClick={() => handleSubCategoryClick('656cccf88e582d304faddd8f')}>invitations</li>
             <li onClick={() => handleSubCategoryClick('656dea24dfa22721d0634502')}>custom signs</li>
             <li onClick={() => handleSubCategoryClick('656e11b53730ccdf8c7c68e0')}>promotional products</li>
-            <li onClick={() => handleSubCategoryClick('656dd8dfe098efe04ba2642b')}>calendars</li>
+            {/* <li onClick={() => handleSubCategoryClick('656dd8dfe098efe04ba2642b')}>calendars</li> */}
           </ul>
         </div>
         <div className='top'>

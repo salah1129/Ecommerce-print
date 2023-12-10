@@ -6,9 +6,6 @@ import Products from './components/products';
 import ProductDetails from './components/productDetails';
 import Cart from './components/cart';
 import LoginSignup from './components/loginSignup/LoginSignup.jsx';
-// import Confirmation from './components/confirmation.jsx';
-import Validation from './components/validation.jsx';
-import Form from'./components/form.jsx';
 
 function App() {
   // Load cart from local storage on initial render
@@ -47,12 +44,7 @@ function App() {
           <Routes>
             <Route path="/products" element={<Products />} />
             <Route path="/signinSignup" element={<LoginSignup/>} />
-            <Route path="/payment" element={<Validation/>} />
-            <Route path="/form" element={<Form/>} />
-            
-
             <Route
-            
               path="/products/cards/:id"
               element={<ProductDetails addToCart={addToCart} />}
             />

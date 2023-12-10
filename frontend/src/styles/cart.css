@@ -1,12 +1,11 @@
 
  /* cart.css */
-.cart {
+ .cart {
     display: flex;
     justify-content: space-between;
     margin: 20px;
-    padding: 100px 20px;
+    padding: 60px 20px;
   }
-  
   .shoppingCart {
     flex: 1;
     padding: 20px;
@@ -14,7 +13,6 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
   .cartItem {
     display: flex;
     margin: 20px 0; 
@@ -24,6 +22,7 @@
   .cartItem img {
     width: 150px;
     height: 150px;
+    margin: ;
     margin-right: 20px;
     object-fit: cover;
     border-radius: 8px;
@@ -54,15 +53,7 @@
     font-weight: 600;
     padding: 20px;
     background-color: #f8f8f8;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin-bottom: 8px;
+    height: 200px;
   }
   
   input {
@@ -80,27 +71,14 @@
     cursor: pointer;
     border-radius: 4px;
   }
-  
-  .success-message {
-    margin-top: 20px;
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px;
-    border-radius: 4px;
-  }
-  .form{
+  .placeOrder{
     width: 100%;
+    margin-top: 16px;
   }
-  .form input{
-    width: 100%;
-  }
-  .desingUrl{
-    display: block;
-    width: 50%;
-  }
-  .textarea{
-    display: block;
-    height: 100px;
-    width: 100%;
-    margin-bottom: 16px;
-  }
+
+  @media only screen and (max-width: 767px) {
+   .cart{
+    flex-direction: column;
+   }
+}
+
