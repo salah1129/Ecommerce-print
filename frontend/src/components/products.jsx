@@ -29,34 +29,50 @@ const Cards = () => {
     navigate(`/products?subcategory=${newSubCategoryId}`);
   };
 
-  const backgroundImageStyle = {
-    backgroundImage: `url(${process.env.PUBLIC_URL}/images/cards/background.jpg)`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  };
+  // const backgroundImageStyle = {
+  //   backgroundImage: `url(${process.env.PUBLIC_URL}/images/cards/background.jpg)`,
+  //   backgroundSize: 'cover',
+  //   backgroundPosition: 'center',
+  // };
 
     return (
     <>
       <div className='cardsPage'>
-        <div className='backgroundImage' style={backgroundImageStyle}></div>
+        {/* <div className='backgroundImage' style={backgroundImageStyle}></div> */}       
+        <div className='mainContent'>
         <div className='nav'>
           <ul>
-            <li onClick={() => handleSubCategoryClick('6569f1b7432bbd4af69fc049')}>business cards</li>
-            <li onClick={() => handleSubCategoryClick('656a009fd859b6a944d37cd4')}>postcards</li>
-            <li onClick={() => handleSubCategoryClick('656dadcee098efe04ba262ea')}>Stickers & Labels</li>
-            <li onClick={() => handleSubCategoryClick('656cccf88e582d304faddd8f')}>invitations</li>
-            <li onClick={() => handleSubCategoryClick('656dea24dfa22721d0634502')}>custom signs</li>
-            <li onClick={() => handleSubCategoryClick('656e11b53730ccdf8c7c68e0')}>promotional products</li>
-            {/* <li onClick={() => handleSubCategoryClick('656dd8dfe098efe04ba2642b')}>calendars</li> */}
+            <li
+                className={new URLSearchParams(location.search).get('subcategory') === '6569f1b7432bbd4af69fc049' ? 'selected' : ''}
+                onClick={() => handleSubCategoryClick('6569f1b7432bbd4af69fc049')}
+              >
+                business cards
+              </li>
+            <li 
+            className={new URLSearchParams(location.search).get('subcategory') === '656a009fd859b6a944d37cd4' ? 'selected' : ''}
+            onClick={() => handleSubCategoryClick('656a009fd859b6a944d37cd4')}>postcards</li>
+            <li 
+            className={new URLSearchParams(location.search).get('subcategory') === '656dadcee098efe04ba262ea' ? 'selected' : ''}
+            onClick={() => handleSubCategoryClick('656dadcee098efe04ba262ea')}>Stickers & Labels</li>
+            <li 
+            className={new URLSearchParams(location.search).get('subcategory') === '656cccf88e582d304faddd8f' ? 'selected' : ''}
+            onClick={() => handleSubCategoryClick('656cccf88e582d304faddd8f')}>invitations</li>
+            <li 
+            className={new URLSearchParams(location.search).get('subcategory') === '656dea24dfa22721d0634502' ? 'selected' : ''}
+            onClick={() => handleSubCategoryClick('656dea24dfa22721d0634502')}>custom signs</li>
+            <li 
+            className={new URLSearchParams(location.search).get('subcategory') === '656e11b53730ccdf8c7c68e0' ? 'selected' : ''}
+            onClick={() => handleSubCategoryClick('656e11b53730ccdf8c7c68e0')}>promotional products</li>
+            <li 
+            className={new URLSearchParams(location.search).get('subcategory') === '656dd8dfe098efe04ba2642b' ? 'selected' : ''}
+            onClick={() => handleSubCategoryClick('656dd8dfe098efe04ba2642b')}>calendars</li>
           </ul>
         </div>
-        <div className='top'>
-          <h1>Your Unique Card Collection</h1>
-          <h3>Discover the Perfect Designs for Every Occasion, Express Your Sentiments with Elegance</h3>
-        </div>
         <div className='products'>
-          <ProductList products={productData} />
+              <ProductList products={productData} />
         </div>
+        </div>
+        
       </div>
     </>
   );
@@ -80,7 +96,7 @@ const ProductCard = ({ product }) => {
       </div>
       <div className='description'>
         <div className='cardName'>
-          <h3>{product.productName}</h3>
+          <h4>{product.productName}</h4>
         </div>
         <div className='price'>{product.price} </div>
         <div className='desc'>{product.descriptions[0]}</div>

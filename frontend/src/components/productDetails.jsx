@@ -52,8 +52,7 @@ const ProductDetails = ({ addToCart }) => {
         <h1>{product.productName}</h1>
         <h3>{product.price}</h3>
         <p>{product.longDescription}</p>
-
-        {/* Additional Sections */}
+        
         <div className="productSpecs">
           <h4>Product Specifications:</h4>
         </div>

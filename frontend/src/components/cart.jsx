@@ -31,7 +31,6 @@ const Cart = ({ cartItems, removeFromCart }) => {
   };
 
   useEffect(() => {
-    // Scroll to the order form when showOrderForm becomes true
     if (showOrderForm && orderFormRef.current) {
       orderFormRef.current.scrollIntoView({ behavior: 'smooth' });
     }
