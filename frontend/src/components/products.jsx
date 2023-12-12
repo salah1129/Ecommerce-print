@@ -29,16 +29,17 @@ const Cards = () => {
     navigate(`/products?subcategory=${newSubCategoryId}`);
   };
 
-  // const backgroundImageStyle = {
-  //   backgroundImage: `url(${process.env.PUBLIC_URL}/images/cards/background.jpg)`,
-  //   backgroundSize: 'cover',
-  //   backgroundPosition: 'center',
-  // };
+  const backgroundImageStyle = {
+    backgroundImage: `url(${process.env.PUBLIC_URL}/images/cards/background.jpg)`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    height: "70vh"
+  };
 
     return (
     <>
       <div className='cardsPage'>
-        {/* <div className='backgroundImage' style={backgroundImageStyle}></div> */}       
+        <div className='backgroundImage' style={backgroundImageStyle}></div>       
         <div className='mainContent'>
         <div className='nav'>
           <ul>
