@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import "../styles/productPage.css";
 
+
 const Cards = () => {
   const [productData, setProductData] = useState([]);
   const navigate = useNavigate();
@@ -95,7 +96,7 @@ const ProductCard = ({ product }) => {
   return (
     <div className='card'>
       <div className='cardImg'>
-        <img alt='img' src={`/images/cards/${product.productImage}`} style={{ width: "100%", height: "100%" }} />
+        <img alt='img' src={require(`../../public/images/cards/${product.productImage}`)} style={{ width: "100%", height: "100%" }} />
       </div>
       <div className='description'>
         <div className='cardName'>

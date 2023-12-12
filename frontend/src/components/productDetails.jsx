@@ -42,7 +42,9 @@ const ProductDetails = ({ addToCart }) => {
   return (
     <div className="productDetails">
       <div className="productImage">
-        <img src={`/images/cards/${product.images[imageIndex]}`} alt={product.productName} style={{ width: "100%", height: "100%" }} />
+        <img src={require(`../../public/images/cards/${product.images[imageIndex]}`)} alt={product.productName} style={{ width: "100%", height: "100%" }} />
+        {/* <img alt='img' src={require(`../../public/images/cards/${product.productImage}`)} style={{ width: "100%", height: "100%" }} /> */}
+
         <div className='nextPrev'>
           <div onClick={handleNextImage}>&lt;</div>
           <div onClick={handlePrevImage}>&gt;</div>

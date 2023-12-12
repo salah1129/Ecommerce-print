@@ -48,7 +48,7 @@ const Cart = ({ cartItems, removeFromCart }) => {
             <div>
               {cartItems.map(item => (
                 <div key={item._id} className="cartItem">
-                  <img src={`/images/cards/${item.productImage}`} alt={item.productName} />
+                  <img src={require(`../../public/images/cards/${item.productImage}`)} alt={item.productName} />
                   <div className="details">
                     <p>{item.productName}</p>
                     <p>Unit price: {parseInt(item.pricePerUnit)} DH</p>
