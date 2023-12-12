@@ -41,6 +41,7 @@ const customerSchema  = new mongoose.Schema(
             type: Boolean,
             default: false,
         },
+        // verificationToken: generateToken(),
 
 
     },
@@ -49,6 +50,8 @@ const customerSchema  = new mongoose.Schema(
      timestamps: true,
     }
 );
+
+
 
 customerSchema.pre('save', async function (next) {
     //check if password is modified or not

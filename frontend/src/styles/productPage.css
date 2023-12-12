@@ -1,120 +1,141 @@
-.top{
-    margin-top: 30px;
-    text-align: center;
-    font-size: 20px;
-}
-.top h1{
-    font-weight: 400;
-}
-.top h3{
-    font-weight: 400;
-}
-.backgroundImage{
-    height: 70vh;
-    width: 100%;
-}
-.nav{
-    height: 7vh;
-    width: 100%;
-    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.2);
-}
-.nav ul{
-    height: 100%;
-    width: 85%;
-    display: flex;
-    margin: 0 auto;
-    list-style: none;
-}
-.nav ul li{
-    background-color: ghostwhite;
-    flex: 1;
-    margin-right: 6px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 19px;
-    cursor: pointer;
-    transition: 0.6s;
-    font-weight: 600;
-}
-.nav ul li:hover{
-    border-bottom: 2px solid green;
-}
-.cards{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 30px; 
-    padding: 100px 200px;
-}
-.cards a{
-    text-decoration: none;
-}
-.card{
-    transition: 0.3s;
-    height: 620px;
-    position: relative;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    cursor: pointer;
-}
-.card .cardImg{
-    height: 300px;
-}
-.card:hover{
-    transform: scale(1.02);
-}
-.card .description{
-    padding: 16px;
-    color: black;
-}
-.card .description .cardName{
-    font-size: 20px;
-    margin-bottom: 8px;
-    display: flex;
-    justify-content: space-between;
-}
-.card .description .cardName h3{
-    font-weight: 500;
-}
-.card .description .price{
-    font-size: 20px;
-    margin-bottom: 16px;
-    font-weight: 500;
-    opacity: 0.8;
-}
-.card .description .desc{
-    font-size: 20px;
-    opacity: 0.7;
-}
-.card .description .link,
-.card .description .addToCart{
-    font-size: 20px;
-    height: 40px;
-    width: 120px;
-    color: rebeccapurple;
-    position: absolute;
-    bottom: 16px;
-    transition: 0.3s;
-}
-.card .description .addToCart{
-    right: 0;
-    transition: 0.3s;
-}
-.card .description .link:hover,
-.card .description .addToCart:hover{
-    transform: scale(1.05);
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
 }
 
-    @media only screen and (max-width: 1024px) {
-    .cards{
-        grid-template-columns: repeat(2, 1fr); 
-        padding: 50px 70px;
-    }
-    }
-    
-    @media only screen and (max-width: 768px) {
-    .cards{
-        grid-template-columns: repeat(1, 1fr); 
-        padding: 50px 26px;
-    }
-    }
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.mainContent {
+  padding: 0 20px;
+}
+
+.backgroundImage {
+  height: 50vh; 
+}
+
+.nav {
+  height: auto; 
+  width: 70%;
+  margin: 15px auto 15px auto; 
+  display: flex;
+  justify-content: center;
+}
+
+.nav ul {
+  display: flex;
+  flex-wrap: wrap; 
+  margin: 0 auto;
+  list-style: none;
+}
+
+.nav ul li {
+  position: relative;
+  padding: 8px; 
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+  text-align: center;
+  margin-right: 6px;
+}
+
+.nav ul li::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: #13274F;
+  transition: width 0.3s;
+}
+
+.nav ul li:hover::before {
+  width: 100%;
+}
+
+.nav ul li.selected::before {
+  width: 100%;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+  padding: 20px 60px;
+}
+
+.card {
+  width: 100%; 
+  transition: 0.3s;
+  height: auto;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.card .cardImg {
+  height: 50%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card .description {
+  color: black;
+  font-size: 14px; 
+  padding: 12px;
+}
+
+.card .description .cardName {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card .description .cardName h4 {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.card .description .price {
+  font-weight: 500;
+  opacity: 0.8;
+  background-color: white;
+  padding-left: 0;
+  margin-bottom: 4px; 
+}
+
+.card .description .desc {
+  opacity: 0.7;
+}
+
+.card .link{
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-size: 18px;
+  color: green;
+}
+
+@media only screen and (max-width: 480px) {
+  .nav ul li {
+    padding: 8px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr; 
+  }
+
+  .card {
+    height: auto;
+  }
+}

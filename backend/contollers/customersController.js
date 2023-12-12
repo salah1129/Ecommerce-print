@@ -5,6 +5,32 @@ const nodemailer = require('nodemailer');
 const dotenv = require("dotenv");
 dotenv.config();
 
+const verifyCustomer = asyncHandler(async (req, res) => {
+
+    const verificationToken = req.params.token;
+
+    try {
+        // Find the customer by the verification token
+        const customer = await Customer.findOne({ verificationToken });
+
+        if (customer) {
+            // Update isVerified to true
+            customer.isVerified = true;
+            await customer.save();
+
+            // Redirect or render a success page
+            return res.redirect('/login');
+        } else {
+            // Handle invalid or expired token
+            return res.status(400).send('Invalid or expired verification token');
+        }
+    } catch (error) {
+        console.error('Error during verification:', error);
+        return res.status(500).send('Internal Server Error');
+    }
+
+} );
+
 //Function to send verification Email
 async function sendVerificationEmail(email, verificationToken) {
     //config nodemailer with email service provider details
@@ -30,6 +56,7 @@ async function sendVerificationEmail(email, verificationToken) {
         console.log('Verification email sent successfully.');
     } catch (error) {
         console.error('Error sending verification email:', error);
+        throw new Error('Error sending verification email');
 
     }
 }
@@ -50,12 +77,14 @@ const registerCustomer = asyncHandler(async (req, res) => {
         last_name,
         email, 
         password,
-        verificationToken
     });
 
     if (customer) {
         //send a verification email
         await sendVerificationEmail(customer.email, verificationToken);
+
+        // Trigger verification immediately after registration
+        await verifyCustomer({ params: { token: verificationToken } }, res);
 
         res.status(201).json({
             _id: customer._id,
@@ -279,5 +308,5 @@ const getCustomerProfile = asyncHandler(async (req, res) => {
 });
 
 
-module.exports = { registerCustomer, authCustomer, deleteCustomer, getCustomerById, getCustomers, getSearchCustomers, updateCustomer, logoutCustomer, updateCustomerProfile, getCustomerProfile }; 
+module.exports = { registerCustomer, authCustomer, deleteCustomer, getCustomerById, getCustomers, getSearchCustomers, updateCustomer, logoutCustomer, updateCustomerProfile, getCustomerProfile, verifyCustomer }; 
 

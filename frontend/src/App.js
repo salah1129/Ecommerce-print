@@ -2,14 +2,16 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Home from './components/home';
+// import Home from './components/home';
+import LandingPage from "./screens/LandingPage/LandingPage.jsx";
+import Login from "./screens/Login/Login.jsx";
+import SignUp from "./screens/SignUp/SignUp.jsx";
 import Products from './components/products';
 import ProductDetails from './components/productDetails';
 import Cart from './components/cart';
-import LoginSignup from './components/loginSignup/LoginSignup.jsx';
 // import Confirmation from './components/confirmation.jsx';
-import Validation from './components/validation.jsx';
-import Form from'./components/form.jsx';
+// import Validation from './components/validation.jsx';
+// import Form from'./components/form.jsx';
 
 function App() {
   // Load cart from local storage on initial render
@@ -42,15 +44,16 @@ function App() {
   };
 
   return (
-    <div className="container">
+
       <div>
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route path="/products" element={<Products />} />
-            <Route path="/signinSignup" element={<LoginSignup/>} />
-            <Route path="/payment" element={<Validation/>} />
-            <Route path="/form" element={<Form/>} />
+            {/* <Route path="/payment" element={<Validation/>} /> */}
+            {/* <Route path="/form" element={<Form/>} /> */}
             
 
             <Route
@@ -65,7 +68,7 @@ function App() {
           </Routes>
         </Router>
       </div>
-    </div>
+
   );
 }
 

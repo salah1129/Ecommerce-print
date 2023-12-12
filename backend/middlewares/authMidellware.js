@@ -33,7 +33,7 @@ const protect = asyncHandler(async (req, res, next) => {
     }
 });
 
-//Midellware to generate and send a new access token using a refrsh token
+//Midellware to generate and send a new access token using a refresh token
     const refreshAccessToken = asyncHandler(async (req, res ) => {
         const refreshToken = req.body.refreshToken; //refresh token sent in the request body
 
