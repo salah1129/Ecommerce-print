@@ -6,6 +6,7 @@ import Products from './components/products';
 import ProductDetails from './components/productDetails';
 import Cart from './components/cart';
 import LoginSignup from './components/loginSignup/LoginSignup.jsx';
+import LandingPage from './components/landingPage.jsx';
 
 function App() {
   // Load cart from local storage on initial render
@@ -52,6 +53,7 @@ function App() {
               path="/cart"
               element={<Cart cartItems={cartItems} removeFromCart={removeFromCart} />}
             />
+            <Route path="/landingPage" element={<LandingPage/>} />
 
           </Routes>
         </Router>
