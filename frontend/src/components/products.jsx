@@ -58,9 +58,9 @@ const Cards = () => {
             <li 
             className={new URLSearchParams(location.search).get('subcategory') === '656dadcee098efe04ba262ea' ? 'selected' : ''}
             onClick={() => handleSubCategoryClick('656dadcee098efe04ba262ea')}>Stickers & Labels</li>
-            <li 
+            {/* <li 
             className={new URLSearchParams(location.search).get('subcategory') === '656cccf88e582d304faddd8f' ? 'selected' : ''}
-            onClick={() => handleSubCategoryClick('656cccf88e582d304faddd8f')}>invitations</li>
+            onClick={() => handleSubCategoryClick('656cccf88e582d304faddd8f')}>invitations</li> */}
             <li 
             className={new URLSearchParams(location.search).get('subcategory') === '656dea24dfa22721d0634502' ? 'selected' : ''}
             onClick={() => handleSubCategoryClick('656dea24dfa22721d0634502')}>custom signs</li>

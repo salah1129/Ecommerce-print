@@ -27,10 +27,6 @@ const Hero = () => {
               <div className="start">
                 <button className="getStarted"><Link >Let's Print</Link></button>
               </div>
-
-              
-              
-              
             </div>
             {/* right side */}
             <div className="flexCenter hero-right">
@@ -40,7 +36,6 @@ const Hero = () => {
                     </img>
                 </div>
             </div>
-
         </div>
     </section>
   )

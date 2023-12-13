@@ -6,6 +6,7 @@ import Footer from '../../components/Footer/Footer';
 import Contact from '../../components/Contact/Contact';
 import Value from "../../components/Value/Value";
 import GetStarted from '../../components/GetStarted/GetStarted';
+import CollectionSlide from '../../components/collectionSlide/collectionSlide';
 
 const LandingPage = () => {
   return (
@@ -15,10 +16,10 @@ const LandingPage = () => {
       <Header />
       <Hero />
     </div>
+    <CollectionSlide />
     <Garantee />
     <Value/>
     <GetStarted/>
-
   <Contact/>
   <Footer />
   </div>
