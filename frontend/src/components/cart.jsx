@@ -1,9 +1,13 @@
 import "../styles/cart.css";
 import React, { useState, useRef, useEffect } from 'react';
+import axios from 'axios';
 
 const Cart = ({ cartItems, removeFromCart }) => {
   const [quantities, setQuantities] = useState({});
   const [showOrderForm, setShowOrderForm] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
   const orderFormRef = useRef(null);
 
   const handleRemove = (productId) => {
@@ -30,12 +34,75 @@ const Cart = ({ cartItems, removeFromCart }) => {
     setShowOrderForm(true);
   };
 
+  const [orderFormData, setOrderFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    address: '',
+    taxNumber: '',
+    city: '',
+    postalCode: '',
+    cardNumber: '',
+    expiryDate: '',
+    cvv: '',
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setOrderFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleSubmitOrder = async () => {
+    try {
+      const order = {
+        items: cartItems.map((item) => ({
+          product: item._id,
+          quantity: quantities[item._id] || 0,
+          designFile: 'path_to_design_file',
+        })),
+        totalAmount: calculateTotal(),
+        deliveryDetails: {
+          address: orderFormData.address,
+          taxNumber: orderFormData.taxNumber,
+          city: orderFormData.city,
+          postalCode: orderFormData.postalCode,
+        },
+        paymentDetails: {
+          cardNumber: orderFormData.cardNumber,
+          expiryDate: orderFormData.expiryDate,
+          cvv: orderFormData.cvv,
+        },
+      };
+
+      await axios.post('http://localhost:5000/v1/orders', order);
+
+      setOrderFormData({
+        name: '',
+        email: '',
+        phone: '',
+        address: '',
+        taxNumber: '',
+        city: '',
+        postalCode: '',
+        cardNumber: '',
+        expiryDate: '',
+        cvv: '',
+      });
+
+      setSuccessMessage('Order placed successfully!');
+      setErrorMessage('');
+      
+    } catch (error) {
+      setSuccessMessage('');
+      setErrorMessage('Error placing order: ' + error.message);
+    }
+  };
+
   useEffect(() => {
     if (showOrderForm && orderFormRef.current) {
       orderFormRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [showOrderForm]);
-
 
   return (
     <>
@@ -88,7 +155,6 @@ const Cart = ({ cartItems, removeFromCart }) => {
       </div>
 
       {showOrderForm && (
-        
         <div className="orderForm" ref={orderFormRef}>
           <h2>Order Details</h2>
           <p>Please provide your personal, delivery, and payment details to complete the order.</p>
@@ -96,51 +162,55 @@ const Cart = ({ cartItems, removeFromCart }) => {
             <h3>Personal Details</h3>
             <label>
               Name:
-              <input type="text" name="name" required />
+              <input type="text" name="name" required onChange={handleInputChange} value={orderFormData.name} />
             </label>
             <label>
               Email:
-              <input type="email" name="email" required />
+              <input type="email" name="email" required onChange={handleInputChange} value={orderFormData.email} />
             </label>
             <label>
               Phone:
-              <input type="tel" name="phone" required />
+              <input type="tel" name="phone" required onChange={handleInputChange} value={orderFormData.phone} />
             </label>
             <h3>Delivery Details</h3>
             <label>
               Address:
-              <input type="text" name="address" required />
+              <input type="text" name="address" required onChange={handleInputChange} value={orderFormData.address} />
             </label>
             <label>
               Tax number if you are a company:
-              <input type="text" name="Matricule fiscale" />
+              <input type="text" name="taxNumber" onChange={handleInputChange} value={orderFormData.taxNumber} />
             </label>
             <label>
               City:
-              <input type="text" name="city" required />
+              <input type="text" name="city" required onChange={handleInputChange} value={orderFormData.city} />
             </label>
             <label>
               Postal Code:
-              <input type="text" name="postalCode" required />
+              <input type="text" name="postalCode" required onChange={handleInputChange} value={orderFormData.postalCode} />
             </label>
             <h3>Payment Details</h3>
             <label>
               Card Number:
-              <input type="text" name="cardNumber" required />
+              <input type="text" name="cardNumber" required onChange={handleInputChange} value={orderFormData.cardNumber} />
             </label>
             <label>
               Expiry Date:
-              <input type="text" name="expiryDate" placeholder="MM/YYYY" required />
+              <input type="text" name="expiryDate" placeholder="MM/YYYY" required onChange={handleInputChange} value={orderFormData.expiryDate} />
             </label>
             <label>
               CVV:
-              <input type="text" name="cvv" required />
+              <input type="text" name="cvv" required onChange={handleInputChange} value={orderFormData.cvv} />
             </label>
-            <button type="submit" className="submitOrder">Submit Order</button>
+            <div className="submitOrder" onClick={handleSubmitOrder}>Submit Order</div>
           </form>
         </div>
       )}
+
+      {successMessage && <div className="successMessage">{successMessage}</div>}
+      {errorMessage && <div className="errorMessage">{errorMessage}</div>}
     </>
   );
 };
+
 export default Cart;

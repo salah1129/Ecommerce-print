@@ -10,8 +10,6 @@ const productsRoutes = require("./routes/productsRoutes")
 const UserRoutes= require('./routes/userRoutes');
 const SubcategoryRoutes = require("./routes/subCategoriesRoutes");
 
-
-
 const { notFound, errorHandler } = require('./middlewares/errorMidellware')
 
 const app = express();
@@ -34,8 +32,10 @@ app.use("/v1/products", productsRoutes)
 app.use('/v1/users', UserRoutes);
 app.use("/v1/subCategories", SubcategoryRoutes);
 
+
 app.use(notFound, errorHandler);
 
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
-  });
+});
+

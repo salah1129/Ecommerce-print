@@ -1,60 +1,38 @@
+
 const mongoose = require('mongoose');
 
-
 const orderSchema = new mongoose.Schema(
-    {
-        customerId: {
-            type: String,
-            required: true,
+  {
+    // customer: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: 'Customer',
+    //   required: true,
+    // },
+    items: [
+      {
+        product: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Product',
+          required: true,
         },
-        customer_id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Subcategory'
-        },
-        order_items: [{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'OrderItem',
-            required: true,
-        }],
-        shippingAddress1: {
-            type: String,
-            required: true,
-        },
-        shippingAddress2: {
-            type: String,
-        },
-        city: {
-            type: String,
-            required: true,
-        },
-        zip: {
-            type: String,
-            required: true,
-        },
-        country: {
-            type: String,
-            required: true,
-        },
-        phone: {
-            type: String,
-            required: true,
-        },
-        order_date: {
-           type: Date,
-           default: Date.now,
-        },
-        totalPrice:{
-            type: Number,
-        },
-        status:{
-            type: String,
-            required: true,
-            default: 'open',
-        }
+        quantity: { type: Number, required: true },
+        designFile: { type: String }, // You may adjust this based on your requirements
+      },
+    ],
+    totalAmount: { type: Number, required: true },
+    deliveryDetails: {
+      address: { type: String, required: true },
+      taxNumber: { type: String },
+      city: { type: String, required: true },
+      postalCode: { type: String, required: true },
     },
-    {
-        timestamps: true,
-    }
+    paymentDetails: {
+      cardNumber: { type: String, required: true },
+      expiryDate: { type: String, required: true },
+      cvv: { type: String, required: true },
+    },
+  },
+  { timestamps: true }
 );
 
 const Order = mongoose.model('Order', orderSchema);

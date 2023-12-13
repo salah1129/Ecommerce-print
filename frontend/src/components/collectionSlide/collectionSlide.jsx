@@ -68,8 +68,6 @@ const CollectionSlide = () => {
   </div>
 </div>
 
-// ...
-
   );
 };
 
