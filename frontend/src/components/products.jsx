@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Header from './Header/Header';
+import Footer from './Footer/Footer';
 import "../styles/productPage.css";
 
 
@@ -41,6 +43,7 @@ const Cards = () => {
 
     return (
     <>
+    <Header />
       <div className='cardsPage'>
         <div className='backgroundImage' style={backgroundImageStyle}></div>       
         <div className='mainContent'>
@@ -78,6 +81,7 @@ const Cards = () => {
         </div>
         
       </div>
+    <Footer />
     </>
   );
 };

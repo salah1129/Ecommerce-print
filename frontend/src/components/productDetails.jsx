@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Header from './Header/Header';
+import Footer from './Footer/Footer';
 import "../styles/productDetails.css";
 
 const ProductDetails = ({ addToCart }) => {
@@ -40,6 +42,8 @@ const ProductDetails = ({ addToCart }) => {
   }
 
   return (
+    <>
+    <Header />
     <div className="productDetails">
       <div className="productImage">
         <img src={require(`../../public/images/cards/${product.images[imageIndex]}`)} alt={product.productName} style={{ width: "100%", height: "100%" }} />
@@ -106,6 +110,9 @@ const ProductDetails = ({ addToCart }) => {
         <button onClick={handleAddToCart} className='addToCart'>Add to Cart</button>
       </div>
     </div>
+    <Footer />
+    </>
+    
   );
 };
 

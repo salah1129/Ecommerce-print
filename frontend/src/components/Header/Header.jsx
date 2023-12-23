@@ -31,8 +31,7 @@ const Header = () => {
 
                 <Link to="/">Home</Link>
                 <Link to="/products">Products</Link>
-                <Link to="/products">Our Value</Link>
-                <Link to="/products">Contact Us</Link>
+                <Link to="/cart">cart</Link>
                 
                 {customerInfo ? (
                 <button className='signIn' onClick={logoutHandler}>
